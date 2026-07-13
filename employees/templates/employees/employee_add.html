@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Employee</title>
+</head>
+
+<body>
+
+<h2>Add Employee</h2>
+
+<form method="post">
+    {% csrf_token %}
+
+    {% if form.errors %}
+        <div>
+            <h3>Please correct the following errors:</h3>
+            {{ form.errors }}
+        </div>
+    {% endif %}
+
+    <p>
+        {{ form.as_p }}
+    </p>
+
+    <button type="submit">Add Employee</button>
+
+    <a href="{% url 'employee_list' %}">Back</a>
+
+</form>
+
+</body>
+</html>
